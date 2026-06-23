@@ -1,4 +1,3 @@
 # ai201-project3-takemeter
 
-# data came from r/nba
-# labels are - analysis, hot take, reaction, and discussion question
+Dataset consists of 200 Reddit r/nba comments labeled into Analysis, Hot Take, Reaction, and Discussion Question.
