@@ -161,12 +161,10 @@ The most common confusion occurred between Hot Take and Reaction. Both labels of
 
 | Post      | Predicted Label     | Confidence |
 | --------- | ------------------- | ---------- |
-| Example 1 | Analysis            | 0.92       |
-| Example 2 | Reaction            | 0.88       |
-| Example 3 | Hot Take            | 0.81       |
-| Example 4 | Discussion Question | 0.95       |
+| Doesn’t Miami trade make more sense? You go for a clear rebuild while getting young pieces, picks and cap space. If you take JB then you’re in a similar if not worse position that you were in with Gia... | Analysis            | 0.27       |
+| Pacers fans have PTSD at seeing that name. | Reaction            | 0.26       |
+| I'd think Rick Fox is somewhere in the top 5. | Hot Take            | 0.26       |
 
-One correct prediction was Example 1 because the comment included structured reasoning and evidence, which aligns closely with the Analysis definition.
 
 ## Reflection: What the Model Learned
 
@@ -185,3 +183,17 @@ I used ChatGPT to stress-test my label definitions by generating boundary-case N
 ### Use Case 2
 
 I used ChatGPT during error analysis to identify patterns among misclassified examples. I reviewed those suggestions manually and incorporated only patterns that were supported by the confusion matrix and prediction outputs.
+
+## Spec Reflection
+
+The project specification helped guide my implementation by emphasizing label design before model training. Spending time defining the labels made annotation more consistent and reduced confusion during data collection.
+
+One way my implementation diverged from the original plan was in the dataset composition. While I intended to collect an evenly balanced dataset across all labels, Discussion Question posts were less common than expected, resulting in fewer examples for that category.
+
+## Reflection
+
+My goal was for the model to distinguish between Analysis, Hot Take, Reaction, and Discussion Question posts in the NBA community. The model learned to identify Analysis posts relatively well, but struggled to separate Reactions from Hot Takes. Many NBA comments contain both emotional language and opinions, which made the boundary difficult for the model to learn.
+
+The model appeared to rely heavily on opinionated wording and basketball-related keywords rather than consistently identifying the author's intent. This suggests that additional examples, especially for Reaction and Discussion Question posts, would improve performance.
+
+
